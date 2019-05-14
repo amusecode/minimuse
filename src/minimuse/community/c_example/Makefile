@@ -5,9 +5,9 @@ AMUSE_DIR?=$(shell amusifier --get_amuse_dir)
 
 MPICXX   ?= mpicxx
 
-CFLAGS   += -Wall -g
+CFLAGS   += -Wall -g -I$(MUSE_PACKAGE_DIR)/lib/minilib
 CXXFLAGS += $(CFLAGS) 
-LDFLAGS  += -lm $(MUSE_LD_FLAGS)
+LDFLAGS  += -lm $(MUSE_LD_FLAGS) -L$(MUSE_PACKAGE_DIR)/lib/minilib -lminimuse_lib
 
 OBJS = interface.o
 
@@ -34,7 +34,7 @@ worker_code.h: interface.py
 	$(CODE_GENERATOR) --type=H interface.py c_exampleInterface -o $@
 
 c_example_worker: worker_code.cc worker_code.h $(CODELIB) $(OBJS)
-	$(MPICXX) $(CXXFLAGS) $< $(OBJS) $(CODELIB) -o $@
+	$(MPICXX) $(CXXFLAGS) $< $(OBJS) $(CODELIB) -o $@ $(LDFLAGS)
 
 .cc.o: $<
 	$(CXX) $(CXXFLAGS) -c -o $@ $< 

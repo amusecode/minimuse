@@ -7,6 +7,9 @@ MPIFC ?= mpif90
 FC      = $(MPIFC)
 
 LDFLAGS  += -lm $(MUSE_LD_FLAGS)
+FCFLAGS += -I$(MUSE_PACKAGE_DIR)/lib/minilib
+
+FS_LIBS +=  -L$(MUSE_PACKAGE_DIR)/lib/minilib -lminimuse_lib
 
 OBJS = interface.o
 
