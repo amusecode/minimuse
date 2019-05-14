@@ -20,7 +20,7 @@ install_requires = [
     'nose>=0.11.1',
     'mpi4py>=1.1.0',
     'h5py>=1.1.0',
-    'amuse-framework>=12.0.0'
+    'amuse-framework>=12.0.0rc3'
 ]
 description = 'miniMUSE: a minimal example for a MUSE package'
 with open("README.md", "r") as fh:
