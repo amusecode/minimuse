@@ -1,4 +1,4 @@
-AMUSE_DIR?=$(shell amusifier --get_amuse_dir)
+AMUSE_DIR?=$(shell amusifier --get-amuse-dir)
 include ${AMUSE_DIR}/config.mk
 
 MPICC ?= mpicc
