@@ -16,6 +16,13 @@ class fortran_exampleInterface(CodeInterface):
         function.can_handle_array = True
         return function
         
+    @legacy_function
+    def add_one():
+        function = LegacyFunctionSpecification()  
+        function.addParameter('int_inout', dtype='int32', direction=function.INOUT)
+        function.result_type = 'int32'
+        function.can_handle_array = True
+        return function
     
 class fortran_example(InCodeComponentImplementation):
 
