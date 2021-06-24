@@ -42,7 +42,7 @@ mapping_from_command_name_to_command_class=setup_commands()
 setup(
     name=name,
     use_scm_version={
-        "write_to": "src/omuse/version.py",
+        "write_to": "src/minimuse/version.py",
     },
     setup_requires=['setuptools_scm'],
     classifiers=classifiers,
